@@ -6,7 +6,7 @@ dotenv.config({
 })
 
 const PORT = process.env.PORT || 8080
-const DBURL = process.env.DBURL || 'mongodb://localhost:27017/srvedcaDB'
+const DBURL = process.env.DBURL || 'mongodb://localhost:27017/dbtest2'
 
 module.exports = {
     PORT,

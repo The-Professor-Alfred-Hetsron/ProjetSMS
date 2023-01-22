@@ -8,7 +8,7 @@ const cors = require('cors');
 const {PORT, DBURL} = require('./Constants/index')
 
 // Importation des routes
-const ContactRoute = require('./Routes/contact')
+//const ContactRoute = require('./Routes/contact')
 
 // Connexion a la BD
 mongoose.set('strictQuery', true)
@@ -39,4 +39,4 @@ app.listen(PORT, () =>{
 
 
 // Utilisation des routes dans le serveur
-app.use('/api/contact', ContactRoute)
+//app.use('/api/contact', ContactRoute)
