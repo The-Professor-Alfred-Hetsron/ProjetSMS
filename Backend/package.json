@@ -11,5 +11,26 @@
     "mongoose": "^6.8.4",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
-  }
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "micro-service REST-full pour sauvegarder les informations de l'utilisateur et faire appel à une autre API en ligne pour l'envoi des SMS",
+  "main": "server.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/The-Professor-Alfred-Hetsron/ProjetSMS.git"
+  },
+  "keywords": [
+    "REST-Full",
+    "API",
+    "ExpressJS",
+    "MongoDB"
+  ],
+  "author": "Alfred Yepnjio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/The-Professor-Alfred-Hetsron/ProjetSMS/issues"
+  },
+  "homepage": "https://github.com/The-Professor-Alfred-Hetsron/ProjetSMS#readme"
 }
