@@ -6,7 +6,7 @@ Implementation d'une plateforme d'envoi des SMS pour permettre à l'utilisateur 
 2) ExpressJS: https://expressjs.com
 3) NodeJS: https://nodejs.org/docs/latest-v16.x/api/
 
-# l'API d'envoie des message
+# l'API d'envoie des messages (Email, whatsapp, sms)
 Az sms proxy: https://asap-desk.com/apidocs/index.html#api-EMAIL-createShortMessageFromGet
 
 # Lien du design(Figma) Frontend
