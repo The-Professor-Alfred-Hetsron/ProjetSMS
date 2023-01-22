@@ -10,7 +10,9 @@ Implementation d'une plateforme d'envoi des SMS pour permettre à l'utilisateur 
 Figma: https://www.figma.com/team_invite/redeem/ctcgESwUELAyde6cU0Blzs
 
 # Structure du repository
+
 Backend
+
     |____API
         |____config
                 |____.env: Contient les données d'environements
@@ -24,12 +26,14 @@ Backend
         |____index.js
 
 Documentation
+
     |____angular7_tutorial.pdf
     |____express-handbook.pdf
     |____Projet 4GI ENSPY 2022-2023.pdf
     |____nodejs_tutorial.pdf
 
-Frontend
+Frontend (En AngularJS)
+
     |____projet-sms
             |____src
                     |____app: Composant racine du projet
