@@ -2,11 +2,13 @@ const dotenv = require('dotenv')
 
 // Configuration des variables d'environement1
 dotenv.config({
-    path : "./config/.env"
+    path : "../config/.env"
 })
 
 const PORT = process.env.PORT || 8080
+const DBURL = process.env.DBURL || 'mongodb://localhost:27017/srvedcaDB'
 
 module.exports = {
-    PORT
+    PORT,
+    DBURL
 }
