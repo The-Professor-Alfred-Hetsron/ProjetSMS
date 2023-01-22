@@ -11,7 +11,7 @@ Figma: https://www.figma.com/team_invite/redeem/ctcgESwUELAyde6cU0Blzs
 
 # Structure du repository
 
-Backend
+Backend (NodeJs, ExpressJS)
 
     |____API
         |____config
