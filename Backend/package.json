@@ -8,7 +8,9 @@
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.4",
+    "mongoose-unique-validator": "^3.1.0",
     "morgan": "^1.10.0",
     "nodemon": "^2.0.20"
   },
@@ -16,7 +18,6 @@
   "version": "1.0.0",
   "description": "micro-service REST-full pour sauvegarder les informations de l'utilisateur et faire appel à une autre API en ligne pour l'envoi des SMS",
   "main": "server.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/The-Professor-Alfred-Hetsron/ProjetSMS.git"
