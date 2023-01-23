@@ -13,7 +13,20 @@ const userSchema = new Schema({
     },
     password: {
         type: String
+    },
+    contacts: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Contact"
+        }]
+    },
+    messages: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Message"
+        }]
     }
+    
 }, {timestamps: true});
 
 const User = mongoose.model('User', userSchema);

@@ -10,8 +10,14 @@ const contactSchema = new Schema({
     },
     phone:{
         type: String
+    },
+    messages: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Message"
+        }]
     }
 }, {timestamps: true});
 
-const User = mongoose.model('Contact', contactSchema);
+const Contact = mongoose.model('Contact', contactSchema);
 module.exports = Contact;
