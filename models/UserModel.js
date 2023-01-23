@@ -6,39 +6,29 @@ import crypto from "crypto"
 import { JWT_SECRET_KEY, JWT_EXPIRES } from "../constants/index.js"
 
 const userSchema = new mongoose.Schema({
-    name:{
-        type:String,
-        required:[true,"Please your Name"],
-        minlength:[3,"Please enter a name atleast 3 characters"], 
-        maxlength:[15, "Name can not big than 15 characters"]
-    },
-    surname:{
-        type:String,
-        required:[true,"Please your Name"],
-        minlength:[3,"Please enter a name atleast 3 characters"], 
-        maxlength:[15, "Name can not big than 15 characters"]
+    contact: {
+        type: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Contact",
+            required: [false, "required id"],
+        }
     },
     email:{
-        type:String,
-        required:[true,"Please enter your email"],
-        validate: [validator.isEmail,"Please enter a valid email"],
-        unique: true,
-    },
-    phone: {
-        type: Number,
-        required: true,
-        default: Number.parseInt(0),
-        unique: true,
+        type: String,
+        required:[true, "Please enter of the conctact"],
     },
     password:{
-        type:String,
+        type: String,
         required:[true,"Please enter your password!"],
         minlength:[8,"Password should be greater than 8 characters"],
         select: false,
     },
-    zipCode:{
-        type:Number,
-        default: Number.parseInt(237)
+    contacts: {
+        type: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: "Contact",
+            required:[true, "Please set the sender conctact"],
+        }]
     },
     createdAt:{
         type: Date,

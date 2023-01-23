@@ -6,7 +6,9 @@ import {
     updatePassword,
     deleteUser,
     forgotPassword,
-    resetPassword
+    resetPassword,
+    getAllUsers,
+    updateUser,
 } from '../controllers/authController.js'
 import { isAuthenticatedUser } from '../middlewares/auth.js'
 const router = express.Router()
@@ -17,15 +19,19 @@ const router = express.Router()
 router.post('/auth/register', createUser)
 //se connecter
 router.post('/auth/login', loginUser)
-//recuperer un utilisateur
-router.get('/user/:id', isAuthenticatedUser, getUser)
 //mot de passe oublie
-router.post("/user/password/forgot", forgotPassword)
+router.post("/password/forgot", forgotPassword)
 //reinitialiser le mot de passe
-router.put("/user/password/reset/:token", resetPassword)
+router.put("/password/reset/:token", resetPassword)
 //modifier le mot de passe
-router.put('/user/password/update', isAuthenticatedUser, updatePassword)
+router.put('/password/update', isAuthenticatedUser, updatePassword)
 //supprimer un utilisateur
 router.delete("/user/:id", isAuthenticatedUser, deleteUser)
+//recuperer un utilisateur
+router.get('/:id', isAuthenticatedUser, getUser)
+//obbtenir tous les utilisateurs
+router.get("/all", isAuthenticatedUser, getAllUsers)
+//mettre a jour un utilisateur
+router.put("/update/user", isAuthenticatedUser, updateUser)
 
 export default router
