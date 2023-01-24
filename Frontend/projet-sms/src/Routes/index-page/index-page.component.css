@@ -1,0 +1,76 @@
+.index-page{
+    background-color: #EEE9F2;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.index-header{
+    width: calc(100vw - 16px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0px 0px;
+}
+
+.index-header img:first-child {
+    height: 80px;
+
+}
+
+.logo{
+    border-radius: 100%;
+    width: 100px;
+}
+
+.index-body{
+    width: calc(100vw - 32px);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.indexText{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    padding: 16px;
+}
+
+.indexwelcome{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.indexwelcome span {
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.index-body img {
+    width: 600px;
+    height: 600px;
+}
+
+.indexbtn{
+    display: flex;
+    justify-content:flex-start;
+    gap: 64px;
+}
+
+.indexlink{
+    text-decoration: none;
+    background-color: #A64AEE;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 16px;
+}
+
+.indexlink:hover{
+    filter: drop-shadow(-5px 0px 10px rgba(0, 0, 0, 0.2)) drop-shadow(10px 12px 10px rgba(0, 0, 0, 0.2));
+}
