@@ -1,0 +1,22 @@
+<div class="contact-outer-container">
+    <div class="contact-container">
+        <div class="contact-card">
+            <header>
+                <h1>Contacts</h1>
+            </header>
+            <div class="search-contact">
+                <input type="text" placeholder="Rechercher..." [formControl]="name" (ngModelChange)="filterContact(name.value)">
+            </div>
+            <div class="contacts">
+                <app-contact *ngFor="let contact of sendedcontacts" [contact]="contact" (newContactEvent)="addItem($event)"></app-contact>
+            </div>
+        </div>
+        <div class="receivers">
+            <div class="receiver-list">
+                <button class="receiver-contact" >
+                    <span >Send Message</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
