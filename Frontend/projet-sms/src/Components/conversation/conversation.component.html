@@ -2,10 +2,10 @@
     <div class="initials {{conversation.bg}}">{{conversation.receiver.userName.split(" ").length >=2? conversation.receiver.userName.split(" ")[0][0].toUpperCase()+conversation.receiver.userName.split(" ")[1][0].toUpperCase(): conversation.receiver.userName? conversation.receiver.userName[0]:"WsT"}}</div>
     <div class="convers-content">
         <h1>{{conversation.sender.userName}}</h1>
-        <p>{{conversation.message}}</p>
+        <p>{{conversation.messages[0].content}}</p>
     </div>
     <div class="convers-type">
-        <span>{{conversation.messages[conversation.messages.length - 1].hour}}</span>
+        <span>{{conversation.messages[conversation.messages.length - 1].hour.split('T')[1].split('.')[0]}}</span>
         <img src="{{conversation.icon}}" alt="">
     </div>
 </button>

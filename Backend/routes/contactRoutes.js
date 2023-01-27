@@ -4,13 +4,16 @@ import {
     getContact,
     deleteContact,
     updateContact,
+    getContacts
 } from '../controllers/contactController.js'
 import { isAuthenticatedUser } from '../middlewares/auth.js'
 const router = express.Router()
 
-//creer un utilisateur
+//creer un contact
 router.post('/new', isAuthenticatedUser, createContact)
-//recuperer un utilisateur
+//recuperer les contacts
+router.get('/all', isAuthenticatedUser, getContacts)
+//recuperer un contacct
 router.get("/:id", isAuthenticatedUser, getContact)
 //mettre a jour un utilisateur
 router.put("/update/:id", isAuthenticatedUser, updateContact)

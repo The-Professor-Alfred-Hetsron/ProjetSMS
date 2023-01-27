@@ -1,22 +1,59 @@
-<div class="contact-outer-container">
-    <div class="contact-container">
-        <div class="contact-card">
-            <header>
-                <h1>Contacts</h1>
-            </header>
-            <div class="search-contact">
-                <input type="text" placeholder="Rechercher..." [formControl]="name" (ngModelChange)="filterContact(name.value)">
+<div class="contact-right">
+    <top-header/>
+    <div class="contact-section">
+        <div class="contact-main-header">
+            <span class="contact-header">
+                <span>Contacts</span>
+                <span>({{serverContacts.length}})</span>
+            </span>
+            <button class="icon-btn add-btn" (click)="addContact=true">
+                <div class="add-icon"></div>
+                <div class="btn-txt">Ajouter</div>
+            </button>
+            <div class="container-search">
+                <input placeholder="Rechercher contacts..." required="" class="input-search" name="text" type="text">
+                <div class="icon-search">
+                    <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                        <title>Rechercher</title>
+                        <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                        <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                    </svg>
+                </div>
             </div>
-            <div class="contacts">
-                <app-contact *ngFor="let contact of sendedcontacts" [contact]="contact" (newContactEvent)="addItem($event)"></app-contact>
-            </div>
-        </div>
-        <div class="receivers">
-            <div class="receiver-list">
-                <button class="receiver-contact" >
-                    <span >Send Message</span>
+            <div class="contact-navigation">
+                <button>
+                    <span class="icon-cnav">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/> </svg>
+                    </span>
+                    <span class="label">Précèdent</span>
+                </button>
+                <span>0 sur 0</span>
+                <button>
+                    <span class="label">Suivant</span>
+                    <span class="icon-cnav">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/> </svg>
+                    </span>
                 </button>
             </div>
         </div>
+        <div class="contact-main-body">
+            <div class="contacts-body">
+                <contact-card *ngFor="let contact of serverContacts; let i=index"
+                    [id]="i"
+                    [contactName]="contact.name"
+                    [contactTel]="contact.phone"
+                    [contactEmail]="contact.email"
+                />
+            </div>
+        </div>
     </div>
-</div>
+    <div *ngIf="addContact" class="addContactForm">
+        <form [formGroup]="contactForm" (ngSubmit)="createContact()">
+            <input type="text" formControlName="name" placeholder="name">
+            <input type="email" formControlName="email" placeholder="email">
+            <input type="text" formControlName="phone" placeholder="phone">
+            <input type="text" formControlName="comcode" placeholder="comcode">
+            <button type="submit">create</button>
+        </form>
+    </div>            
+</div>        

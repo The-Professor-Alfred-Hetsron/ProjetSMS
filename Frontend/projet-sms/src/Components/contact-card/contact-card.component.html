@@ -1,0 +1,12 @@
+<button class="contact-card" (click)="sendId($event)">
+    <div class="contactProfile">
+        <span class="cInitials">
+            <span>{{contactInitials}}</span>
+        </span>
+        <span class="cName">{{contactName}}</span>
+    </div>
+    <div class="contact-tel-email">
+        <div class="ctel"><span class="clabel">Telephone</span><span class="clabel-value">{{contactTel}}</span></div>
+        <div class="cemail"><span class="clabel">Email</span><span class="clabel-value">{{contactEmail}}</span></div>
+    </div>
+</button>

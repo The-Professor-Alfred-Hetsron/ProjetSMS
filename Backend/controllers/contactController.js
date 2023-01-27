@@ -114,3 +114,19 @@ export const deleteContact = catchAsyncErrors(async(req,res,next) =>{
      }
   
   });
+
+//  Get Contact
+export const getContacts = catchAsyncErrors(async (req, res, next) => {
+    const { user } = req
+    if (!user){
+        return next(new ErrorHandler("you must be connected", 400));
+    } 
+    const contacts = await Contact.find({owner: user.id});
+    if (!contacts){
+        return next(new ErrorHandler("contact not found", 400));
+    }
+    res.status(200).json({
+      success: true,
+      contacts,
+    });
+});

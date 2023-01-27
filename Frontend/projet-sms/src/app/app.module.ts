@@ -7,7 +7,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { ContactsPageComponent } from '../Pages/contacts-page/contacts-page.component';
 import { LoginPageComponent } from '../Pages/login-page/login-page.component';
-import { SigninPageComponent } from '../Pages/signin-page/signin-page.component';
+import { SignupPageComponent } from '../Pages/signup-page/signup-page.component';
 import { ForgotPasswordPageComponent } from '../Pages/forgot-password-page/forgot-password-page.component';
 import { SaveContactsPageComponent } from '../Pages/save-contacts-page/save-contacts-page.component';
 import { ImportContactsPageComponent } from '../Pages/import-contacts-page/import-contacts-page.component';
@@ -20,17 +20,17 @@ import { NavitemComponent } from 'src/Components/navitem/navitem.component';
 import { ConversationComponent } from '../Components/conversation/conversation.component';
 import { ContactComponent } from '../Components/contact/contact.component';
 import { MessagingComponent } from '../Components/messaging/messaging.component';
-
+import { ContactCardComponent } from 'src/Components/contact-card/contact-card.component';
+import { TopHeaderComponent } from 'src/Components/top-header/top-header.component';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { UserState } from 'src/Store/user.state';
 
 @NgModule({
   declarations: [
     AppComponent,
     ContactsPageComponent,
     LoginPageComponent,
-    SigninPageComponent,
+    SignupPageComponent,
     ForgotPasswordPageComponent,
     SaveContactsPageComponent,
     ImportContactsPageComponent,
@@ -42,13 +42,15 @@ import { UserState } from 'src/Store/user.state';
     NavitemComponent,
     ConversationComponent,
     ContactComponent,
-    MessagingComponent
+    MessagingComponent,
+    ContactCardComponent,
+    TopHeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    NgxsModule.forRoot([UserState]),
+    NgxsModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
   providers: [],

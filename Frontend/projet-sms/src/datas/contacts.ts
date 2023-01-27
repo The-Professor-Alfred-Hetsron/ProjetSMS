@@ -7,6 +7,8 @@ const contacts: Contact[] = [
       bg: "bg-blue",
       checked: false,
       id: "1",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Brandley Severin",
@@ -14,6 +16,8 @@ const contacts: Contact[] = [
       bg: "bg-blue",
       checked: false,
       id: "2",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Joyce Afane",
@@ -21,6 +25,8 @@ const contacts: Contact[] = [
       bg: "bg-violet",
       checked: false,
       id: "3",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Alfred Yepnjio",
@@ -28,6 +34,8 @@ const contacts: Contact[] = [
       bg: "bg-orange",
       checked: false,
       id: "4",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Azoa sophie",
@@ -35,6 +43,8 @@ const contacts: Contact[] = [
       bg: "bg-blue",
       checked: false,
       id: "5",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Amanda Celine",
@@ -42,6 +52,8 @@ const contacts: Contact[] = [
       bg: "bg-violet",
       checked: false,
       id: "6",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "George Amou'ou",
@@ -49,6 +61,8 @@ const contacts: Contact[] = [
       bg: "bg-orange",
       checked: false,
       id: "7",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Amanda Celine",
@@ -56,6 +70,8 @@ const contacts: Contact[] = [
       bg: "bg-blue",
       checked: false,
       id: "8",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Vicky Garba",
@@ -63,6 +79,8 @@ const contacts: Contact[] = [
       bg: "bg-violet",
       checked: false,
       id: "10",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Amanda Celine",
@@ -70,6 +88,8 @@ const contacts: Contact[] = [
       bg: "bg-orange",
       checked: false,
       id: "11",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     },
     {
       userName: "Bradley anzie",
@@ -77,6 +97,8 @@ const contacts: Contact[] = [
       bg: "bg-blue",
       checked: false,
       id: "12",
+      email: "haterb2803@gmail.com",
+      zipCode: 237
     }
 ]
 

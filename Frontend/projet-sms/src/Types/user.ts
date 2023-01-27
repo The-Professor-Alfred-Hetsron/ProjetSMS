@@ -1,8 +1,8 @@
+import Contact from "./contact";
+
 interface User {
     id: string,
-    name: string,
-    lastname: string,
-    phone: string,
+    contact: Contact,
 }
 
 export default User

@@ -9,6 +9,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "1",
@@ -16,25 +18,29 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       messages: [
         {
           content: "In et pellentesque lectus purus",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
         },
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
         },
         {
           content: "tristique ac massa imperdiet eu felis.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
         },
       ]
     },
@@ -46,6 +52,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "2",
@@ -53,25 +61,29 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       messages: [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },
@@ -83,6 +95,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "3",
@@ -90,25 +104,29 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       messages: [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },
@@ -120,6 +138,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "4",
@@ -127,25 +147,29 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       messages: [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },
@@ -157,6 +181,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "5",
@@ -164,25 +190,29 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       messages: [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },
@@ -193,6 +223,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "6",
@@ -200,8 +232,9 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       id: "6",
@@ -209,17 +242,20 @@ const conversations: Conversation[] = [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },
@@ -230,6 +266,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "7",
@@ -237,8 +275,9 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       id: "7",
@@ -246,17 +285,20 @@ const conversations: Conversation[] = [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },
@@ -267,6 +309,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "8",
@@ -274,8 +318,9 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       id: "8",
@@ -283,17 +328,20 @@ const conversations: Conversation[] = [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },
@@ -304,6 +352,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "9",
@@ -311,8 +361,9 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       id: "9",
@@ -320,17 +371,20 @@ const conversations: Conversation[] = [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },
@@ -341,6 +395,8 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
       receiver: {
         id: "10",
@@ -348,8 +404,9 @@ const conversations: Conversation[] = [
         number: "123",
         checked: false,
         bg: '',
+        email: "haterb2803@gmail.com",
+        zipCode: 237
       },
-      message: "Are you in school?",
       icon: './assets/Images/whatsapp.png',
       bg: "bg-blue",
       id: "10",
@@ -357,17 +414,20 @@ const conversations: Conversation[] = [
         {
           content: "pellentesque lectus purus.",
           date: "12/05/2022",
-          hour: "12:00"
+          hour: "12:00",
+          receivers: []
           },
           {
             content: "tellus egestas faucibus. Nec eget lacus mi ante.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
           {
             content: "in et pellentesque lectus purus.",
             date: "12/05/2022",
-            hour: "12:00"
+            hour: "12:00",
+            receivers: []
           },
       ]
     },

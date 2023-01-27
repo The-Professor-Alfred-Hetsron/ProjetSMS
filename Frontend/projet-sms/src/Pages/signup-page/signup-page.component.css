@@ -1,3 +1,11 @@
+.page-outer{
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
 .login-page{
     background-color: #EEE9F2;
     height: 100vh;
@@ -53,18 +61,18 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding-top: 8px;
+    padding-top: 16px;
 }
 
 .login-logo-header img:first-child{
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
     border-radius: 100%;
 }
 
 .login-logo-header img:last-child{
-    height: 60px;
-    width: 180px;
+    height: 80px;
+    width: 220px;
 }
 
 .login-right form{

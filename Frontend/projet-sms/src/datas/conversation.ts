@@ -1,13 +1,16 @@
 import Conversation from "src/Types/conversation"
 
 const empty_conversation: Conversation = {
-    id: "",
+      id: "",
       sender: {
         id: "",
         userName: "",
         number: "",
         checked: false,
         bg: '',
+        email: "",
+        zipCode: 0,
+
       },
       receiver: {
         id: "",
@@ -15,15 +18,17 @@ const empty_conversation: Conversation = {
         number: "",
         checked: false,
         bg: '',
+        email: "",
+        zipCode: 0,
       },
-      message: "",
       icon: '',
       bg: "",
       messages: [
         {
           content: "",
           date: "",
-          hour: ""
+          hour: "",
+          receivers: []
         },
       ]
   }

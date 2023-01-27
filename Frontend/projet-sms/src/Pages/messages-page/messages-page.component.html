@@ -4,8 +4,8 @@
             <img src="{{logoImage.image}}" alt="{{logoImage.alt}}">
         </a>
         <button>
-            <img src="{{user.image}}" alt="{{user.alt}}">
-            <h1>{{user.name}}</h1>
+            <div class="contact-initials bg-blue">{{user.contact.userName.split(" ").length >=2? user.contact.userName.split(" ")[0][0].toUpperCase()+user.contact.userName.split(" ")[1][0].toUpperCase(): user.contact.userName? user.contact.userName[0]:"WsT"}}</div>
+            <h1>{{user.contact.userName}}</h1>
         </button>
     </nav>
     <div class="center-content">

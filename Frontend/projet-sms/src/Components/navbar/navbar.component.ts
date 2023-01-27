@@ -11,7 +11,7 @@ export class NavbarComponent {
     {
       activeImage:"./assets/Images/HomeButtonActive.png",
       linkImage:"./assets/Images/HomeButtonLink.png",
-      path:"/home",
+      path:"",
       label:"Home"
     },
     {
@@ -23,7 +23,7 @@ export class NavbarComponent {
     {
       activeImage:"./assets/Images/MessagesButtonActive.png",
       linkImage:"./assets/Images/MessagesButtonLink.png",
-      path:"/messages",
+      path:"/messages/"+localStorage.getItem("userid"),
       label:"Messages"
     }
   ]

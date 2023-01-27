@@ -7,13 +7,13 @@ import { LoginPageComponent } from 'src/Pages/login-page/login-page.component';
 import { MessagesPageComponent } from 'src/Pages/messages-page/messages-page.component';
 import { SaveContactsPageComponent } from 'src/Pages/save-contacts-page/save-contacts-page.component';
 import { SendSmsPageComponent } from 'src/Pages/send-sms-page/send-sms-page.component';
-import { SigninPageComponent } from 'src/Pages/signin-page/signin-page.component';
-import { HomePageComponent } from '../Pages/home-page/home-page.component';
+import { SignupPageComponent } from 'src/Pages/signup-page/signup-page.component';
+import { IndexPageComponent } from 'src/Pages/index-page/index-page.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: HomePageComponent
+    component: IndexPageComponent,
   },
   {
     path: 'contacts',
@@ -32,7 +32,7 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path: 'messages',
+    path: 'messages/:id',
     component: MessagesPageComponent
   },
   {
@@ -44,8 +44,8 @@ const routes: Routes = [
     component: SendSmsPageComponent
   },
   {
-    path: 'sigin',
-    component: SigninPageComponent
+    path: 'signup',
+    component: SignupPageComponent
   }
 ];
 
