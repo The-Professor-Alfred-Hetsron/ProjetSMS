@@ -1,0 +1,6 @@
+.main-right{
+    display: flex;
+    flex-direction: column;
+    width: 93.2vw;
+    height: 100%;
+}

@@ -1,0 +1,115 @@
+.home-section{
+    width: 100%;
+    height: 84.2vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.section-up{
+    padding-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: black;
+    font-size: 40px;
+}
+
+
+.section-down{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contactbtn-span > img {
+    border-radius: 100%;
+    width: 95%;
+    height: 90%;
+}
+
+.contact-button{
+    font-size: 20px;
+    color: black;
+    font-weight: bolder;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-decoration: none;
+    width: 300px;
+    height: 300px;
+    outline: none;
+    border: none;
+    background: transparent;
+}
+
+
+.contactbtn-span {
+    width: 100%;
+    height: auto;
+    float: left;
+    transition: .5s linear;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    text-align: center;
+    margin: 0 5px;
+    background: transparent;
+    text-transform: uppercase;
+    border-radius: 16px;
+  }
+  
+  .contactbtn-span:before {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    width: 100%;
+    border-bottom: 4px solid transparent;
+    border-left: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(100%);
+    border-radius: 16px;
+  }
+  
+  .contactbtn-span:after {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    border-top: 4px solid transparent;
+    border-right: 4px solid transparent;
+    box-sizing: border-box;
+    transform: translateX(-100%);
+    border-radius: 16px;
+  }
+  
+  .contactbtn-span:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(60deg, #A64AEE, white);
+    border-radius: 16px;
+  }
+  
+  .contactbtn-span:hover:before {
+    border-color: #3D256A;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .3s;
+  }
+  
+  .contactbtn-span:hover:after {
+    border-color: #3D256A;
+    height: 100%;
+    transform: translateX(0);
+    transition: .3s transform linear, .3s height linear .5s;
+  }
+  

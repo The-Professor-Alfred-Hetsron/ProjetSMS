@@ -11,6 +11,14 @@ import { SaveContactsPageComponent } from '../Routes/save-contacts-page/save-con
 import { ImportContactsPageComponent } from '../Routes/import-contacts-page/import-contacts-page.component';
 import { SendSmsPageComponent } from '../Routes/send-sms-page/send-sms-page.component';
 import { MessagesPageComponent } from '../Routes/messages-page/messages-page.component';
+import { HomePageComponent } from '../Routes/home-page/home-page.component';
+import { NavbarComponent } from '../Components/navbar/navbar.component';
+import { MainContainerComponent } from '../Components/main-container/main-container.component';
+import { NavitemComponent } from '../Components/navitem/navitem.component';
+import { HomeSectionComponent } from '../Components/home-section/home-section.component';
+import { TopHeaderComponent } from '../Components/top-header/top-header.component';
+import { MainRightContainerComponent } from 'src/Components/main-right-container/main-right-container.component';
+
 
 @NgModule({
   declarations: [
@@ -22,7 +30,15 @@ import { MessagesPageComponent } from '../Routes/messages-page/messages-page.com
     SaveContactsPageComponent,
     ImportContactsPageComponent,
     SendSmsPageComponent,
-    MessagesPageComponent
+    MessagesPageComponent,
+    HomePageComponent,
+    NavbarComponent,
+    NavitemComponent,
+    MainContainerComponent,
+    HomeSectionComponent,
+    TopHeaderComponent,
+    MainRightContainerComponent
+   
   ],
   imports: [
     BrowserModule,

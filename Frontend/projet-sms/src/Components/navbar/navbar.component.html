@@ -1,0 +1,31 @@
+<nav class="navbar">
+    <ul>
+        <li *ngFor="let navlink of allNavLinks">
+            <navitem
+                [activeImage]="navlink.activeImage"
+                [linkImage]="navlink.linkImage"
+                [path]="navlink.path"
+                [label]="navlink.label"
+            />
+        </li>
+    </ul>
+    <div class="line-separator"></div>
+    <ul>
+        <li>
+            <navitem
+                [activeImage]="accountLink.activeImage"
+                [linkImage]="accountLink.linkImage"
+                [path]="accountLink.path"
+                [label]="accountLink.label"
+            />
+        </li>
+        <li>
+            <navitem
+                [activeImage]="logoutLink.activeImage"
+                [linkImage]="logoutLink.linkImage"
+                [path]="logoutLink.path"
+                [label]="logoutLink.label"
+            />
+        </li>
+    </ul>
+</nav>

@@ -1,0 +1,8 @@
+.main-container{
+    /*border: 1px solid red;*/
+    border-radius: 16px;
+    width: 98vw;
+    height: 95vh;
+    display: flex;
+    background-color: white;
+}
