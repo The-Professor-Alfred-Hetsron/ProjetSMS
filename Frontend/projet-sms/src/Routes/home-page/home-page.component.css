@@ -1,0 +1,16 @@
+.contact-page{
+    background-color: #EEE9F2;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-container{
+    background-color: white;
+    border-radius: 16px;
+    width: 98vw;
+    height: 95vh;
+    display: flex;
+}

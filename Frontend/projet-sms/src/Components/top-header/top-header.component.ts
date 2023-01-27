@@ -7,6 +7,5 @@ import { Component } from '@angular/core';
 })
 export class TopHeaderComponent {
   userName = "Vicky Garba"
-  userInitial1 = this.userName.substring(0,1).toUpperCase()
-  userInitial2 = this.userName.substring(this.userName.indexOf(" ")+1,this.userName.indexOf(" ")+2).toUpperCase()
+  userInitial = this.userName.substring(0,1).toUpperCase() + this.userName.substring(this.userName.lastIndexOf(" ")+1,this.userName.lastIndexOf(" ")+2).toUpperCase()
 }
