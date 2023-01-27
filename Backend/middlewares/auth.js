@@ -2,7 +2,7 @@ import ErrorHandler from "../utils/ErrorHandler.js"
 import { catchAsyncErrors } from "./catchAsyncErrors.js"
 import jwt from "jsonwebtoken"
 import User from "../models/UserModel.js"
-
+import { ObjectId } from 'mongodb'
 
 
 
@@ -13,8 +13,8 @@ export const isAuthenticatedUser = catchAsyncErrors(async (req,res,next) =>{
   }
 
   const decodedData = jwt.verify(token, process.env.JWT_SECRET_KEY);
-
-  req.user = await User.findById(decodedData.id);
+  const objectId = new ObjectId(decodedData.id)
+  req.user = await User.findById(objectId);
 
   next();
 });

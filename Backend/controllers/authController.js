@@ -29,8 +29,8 @@ export const createUser = catchAsyncErrors(async (req, res, next) => {
 			phone,
             zipCode: comcode, 
 		}
+		console.log(cdata)
 		const userContact = await Contact.create(cdata);
-		console.log(userContact.id)
 		const user = await User.findByIdAndUpdate(debuser.id, {
 			contact: userContact.id
 		}, {
@@ -39,7 +39,6 @@ export const createUser = catchAsyncErrors(async (req, res, next) => {
 			useFindAndModify: false,
 		  });
 		await user.save()
-		console.log(user)
         sendToken(user, 200, res);
     }
     catch (err){
@@ -51,11 +50,10 @@ export const createUser = catchAsyncErrors(async (req, res, next) => {
 // Connection
 export const loginUser = catchAsyncErrors(async (req, res, next) => {
     const { email, password } = req.body;
-  
+	//console.log({email, password})
     if (!email || !password) {
       return next(new ErrorHandler("Please enter the email & password", 400));
     }
-  
     const user = await User.findOne({ email }).select("+password");
     if (!user) {
       return next(
@@ -63,12 +61,14 @@ export const loginUser = catchAsyncErrors(async (req, res, next) => {
       );
     }
     const isPasswordMatched = await user.comparePassword(password);
-  
+	
+	
     if (!isPasswordMatched) {
       return next(
         new ErrorHandler("User is not find with this email & password", 402)
       );
     }
+	//console.log(user)
     console.log("nouvelle connexion etablie")
     sendToken(user, 201, res);
 });

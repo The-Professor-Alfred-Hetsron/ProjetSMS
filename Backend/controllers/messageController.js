@@ -3,7 +3,7 @@ import { catchAsyncErrors } from "../middlewares/catchAsyncErrors.js"
 import Message from '../models/MessageModel.js'
 import Contact from "../models/ContactModel.js"
 import mongoose from "mongoose"
-
+import axios from "axios"
 
 
 export const getMessage  = catchAsyncErrors(async (req, res, next) => {
@@ -38,13 +38,30 @@ export const sendWhatsappMessage  = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler("Only connected users cand send message", 400));
     }
     //envoyer le message par l'api
-    const dataToSend = {
-        pnoneNumber: receivers,
-        message,
-        mediaUrl: null,
-        externalId: null,
-        lineId: null 
+    const axiosinstance = axios.create({
+        baseURL: 'https://asap-desk.com',
+        timeout: 1000,
+    });
+    let options = {
+        method: 'POST',
+        headers: {
+            Accept: '*/*',
+            'User-Agent': 'Thunder Client (https://www.thunderclient.com)',
+            Authorization: 'Basic NThkMGVhMjU4N2E3OjIxNTEwNWYzLWIzOGYtNDNkMy1hMWE5LTBiOTAzMGJlYjg3MQ==',
+            'Content-Type': 'application/json'
+        },
+        withCredentials: true
+    };
+    const contact = await Contact.findOne({id: user.contact})
+    const senddata = {
+        phoneNumber: `+${contact.zipCode}${contact.phone}`,
+        message: 'Comment vas-tu',
+        mediaUrl: '',
+        externalId: '',
+        lineId: 'cPjD5Fz9QsT4CbAyh'
     }
+    const response = await axios.request({url: '/api/v0/whatsapp/message', data: senddata, ...options})
+    
     //enregistrer le message dans la bd
     const data = {
         content: message,
@@ -56,11 +73,14 @@ export const sendWhatsappMessage  = catchAsyncErrors(async (req, res, next) => {
         if (contact) data.receivers.push(mongoose.Types.ObjectId(contact))
     })
     console.log(data)
-    const messageToSave = await Message.create(data)
-    res.status(200).json({
-        staatus: 'success',
-        message: messageToSave
-    })
+    if (data.receivers.length){
+        const messageToSave = await Message.create(data)
+        res.status(200).json({
+            staatus: 'success',
+            message: messageToSave
+        })
+    }
+    return next(new ErrorHandler("Only write to your contacts", 400));
 })
 
 export const deletetMessage  = catchAsyncErrors(async (req, res, next) => {
@@ -83,5 +103,17 @@ export const deletetMessage  = catchAsyncErrors(async (req, res, next) => {
     
     res.status(200).json({
         status: "success",
+    })
+})
+
+export const filterUserMessage  = catchAsyncErrors(async (req, res, next) => {
+    const { id } = req.params
+    if (!id) {
+        return next(new ErrorHandler("missing contact id", 401));
+    }
+    const messages = await Message.find({sender: id})
+    res.status(200).json({
+        status: "success",
+        messages
     })
 })
