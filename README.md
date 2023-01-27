@@ -59,3 +59,15 @@ Frontend (En AngularJS)
             |____index.ts
             |____main.ts
             |____styles.css
+
+# Guide de Presentation du projet
+Le dépot est organisé selon plusieurs branches. Le nom d'une branche correspond au nom de la personne qui a manipulé le code présent sur cette branche:
+1- la branche 'main' qui est la principale branche contenant le code final
+2- la branche 'alfred' correspondant à ALFRED
+3- la branche 'azoa' correspondant à AZOA
+4- la branche 'vicky' correspondant à ZIINAM
+5- la branche 'anzie' correspondant à ANZIE
+6- la branche 'amanda' correspondant à DJEUNNANG
+7- la branche 'afane' correspondant à AFANE
+8- la branche 'Hervézor' correspondant à DJOMGUEM
+9- la branche 'leprodige' correspondant à ADZABA
