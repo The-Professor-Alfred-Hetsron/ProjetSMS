@@ -1,17 +1,17 @@
 <div class="contact-page">
     <div class="contact-container">
         <div *ngIf="isAddcontact" class="add-contact-container">
-            <form class="add-contact-card">
+            <form action="" method="post" class="add-contact-card" [formGroup]="addContactForm" (ngSubmit) = "onAddContact(addContactForm.value)" >
                 <div class="add-card-header">
                     <span>Ajouter un Contact</span>
                 </div>
                 <div class="add-card-body">
                     <div class="add-contactProfile">
                         <span class="add-cInitials">
-                            <span>AY</span>
+                            <span>{{newContactInitials}}</span>
                         </span>
                         <div class="wave-group">
-                            <input type="text" name="loginName" class="input" pattern="^[a-zA-Z]+ [a-zA-Z]+$" required>
+                            <input type="text" name="loginName" class="input" pattern="^[a-zA-Z]+ [a-zA-Z]+$" formControlName="newName" [formControl]="newContactName" (ngModelChange)="addContactName(newContactName.value)" required>
                             <span class="bar"></span>
                             <label class="label">
                                 <span class="label-char" style="--index: 0">N</span>
@@ -22,7 +22,7 @@
                     </div>
                     <div class="add-contact-tel-email">
                         <div class="wave-group">
-                            <input type="text"  name="loginTel" class="input" required min="9">
+                            <input type="text"  name="loginTel" class="input" required min="9" formControlName="newPhone">
                             <span class="bar"></span>
                             <label class="label">
                                 <span class="label-char" style="--index: 0">T</span>
@@ -31,7 +31,7 @@
                             </label>
                         </div>
                         <div class="wave-group">
-                            <input type="email" name="loginEmail" class="input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                            <input type="email" name="loginEmail" class="input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" formControlName="newEmail" required="">
                             <span class="bar"></span>
                             <label class="label">
                                 <span class="label-char" style="--index: 0">E</span>
@@ -46,12 +46,7 @@
                         <button (click)="toogleAddcontactCard($event)">
                             Annuler
                         </button>
-                        <button (click)="toogleAddcontactCard($event)">
-                            <span>
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"><path fill="none" d="M0 0h24v24H0z"></path><path fill="currentColor" d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"></path></svg>
-                                Ajouter
-                            </span>
-                        </button>
+                        <input type="submit" value="Ajouter">
                     </div>
                 </div>
             </form>

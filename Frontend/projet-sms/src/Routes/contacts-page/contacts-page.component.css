@@ -313,17 +313,19 @@
     align-items: center;
     height: 100%;
     width: 100%;
-    overflow-y: auto;
+    overflow:auto;
 }
 
 .contacts-body{
     padding: 16px;
     height: calc(100% - 32px);
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    gap: 2px;
-    width: 98%;
-    overflow-y: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 60px;
+    width: 100%;
+    overflow: auto;
 }
 
 .add-contact-container{
@@ -486,10 +488,6 @@ width: 50%;
 --------------------------------------------
 */
 
-.add-contact-controls button:first-child{
-
-}
-
 .add-contact-controls button:first-child {
   font-size: 17px;
   background: transparent;
@@ -536,26 +534,19 @@ width: 50%;
 .add-contact-controls button:first-child:hover::after {
   height: 100%;
   transition-delay: 0.4s;
-  color: aliceblue;
+  color: white;
 }
 
-.add-contact-controls button:last-child {
+.add-contact-controls > input[type = submit]{
   border: 2px solid #24b4fb;
   background-color: #24b4fb;
   border-radius: 0.9em;
   padding: 0.8em 1.2em 0.8em 1em;
   transition: all ease-in-out 0.2s;
   font-size: 16px;
+  color: white;
  }
- 
- .add-contact-controls button:last-child > span {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  font-weight: 600;
- }
- 
- .add-contact-controls button:last-child:hover {
+
+ .add-contact-controls > input[type = submit]:hover {
   background-color: #0071e2;
  }

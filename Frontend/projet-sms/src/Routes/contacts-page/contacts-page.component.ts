@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormGroup,FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-contacts-page',
@@ -24,12 +24,18 @@ export class ContactsPageComponent {
     this.isContactSelected = state
     //console.log(`state: sent ${state} and received ${this.isContactSelected}`)
   }
-
   serverContacts = [
     {
       name:"Alfred Yepnjio",
       tel:"+237657999999",
       email:"alfred@gmail.com"
+    }
+  ]
+  /*serverContacts = [
+    {
+      name:"Alfred Yepnjio",
+      tel:"+237657999999",
+      email:"alfred@gmail.com"
     },
     {
       name:"Vicky Garba",
@@ -81,17 +87,12 @@ export class ContactsPageComponent {
       tel:"+237657999999",
       email:"joyce@gmail.com"
     },
-    {
-      name:"Amouou Georges",
-      tel:"+237657999999",
-      email:"george@gmail.com"
-    }
-  ]
+  ]*/
 
   contactNumber:number = this.serverContacts.length
   totalPages:number = Math.round(this.contactNumber/ 12);
   currentPageId:number = 1;
-  isOnePage:boolean = this.totalPages === 1
+  isOnePage:boolean = this.totalPages === 1 || this.totalPages === 0
 
   searchInput = new FormControl("")
   contactSearchInput:string = ""
@@ -116,4 +117,25 @@ export class ContactsPageComponent {
         }
     }
   }
+
+  /* Add New contact start*/
+  newContactName =  new FormControl("")
+  newContactInitials:string = ""
+  addContactName(data:string | null):void{
+    if(data){
+      this.newContactInitials = data.split(" ").length < 2 ? data.split(" ")[0][0].toUpperCase() : data.substring(0,1).toUpperCase() + data.substring(data.lastIndexOf(" ")+1,data.lastIndexOf(" ")+2).toUpperCase()
+    }
+  }
+  addContactForm: FormGroup = new FormGroup({
+    newName: new FormControl(""),
+    newPhone: new FormControl(""),
+    newEmail: new FormControl("")
+  });
+  onAddContact(data:any):void{
+    this.isAddcontact = !this.isAddcontact
+    data.newName = this.newContactName.value
+    console.log(data)
+    this.currentDisplayedContact.push({name:data.newName,tel:data.newPhone, email:data.newEmail})
+  }
+  /* Add New contact end*/
 }
