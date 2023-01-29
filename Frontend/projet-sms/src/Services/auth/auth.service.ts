@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import axios from 'axios';
+import axios, { AxiosError } from 'axios';
+import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class AuthService {
     baseURL: 'http://localhost:5000',
     timeout: 1000,
   });
-  constructor() { }
+  constructor(private cookies:CookieService) { }
   async getUserContactId(values: {email:string, password: string}){
     let resp = {
       contact: '',
@@ -20,21 +21,24 @@ export class AuthService {
       const configObject = {
         method: 'post'
       }
-      console.log(values)
       const response = await this.axiosinstance.request({
         url: '/api/user/auth/login',
         data: {...values},
         ...configObject
       });
-      console.log(response)
       resp.id = response.data.user._id;
       resp.contact = response.data.user.contact
       resp.token = response.data.token
-      localStorage.setItem('userid', resp.id)
       return resp
     }
     catch (error){
       console.log(error)
+        const newErr:AxiosError | any = error
+        if (newErr){
+          const { response } = newErr
+          const { data } = response
+          alert(data.message)
+        }
     }
     
     return resp
@@ -45,7 +49,7 @@ export class AuthService {
       const configObject = {
         method: 'get', 
         headers: {
-          'Set-Cookie': `token=${localStorage.getItem('token')}; HttpOnly`,
+          'Cookie': `token=${this.cookies.get('token')}; Secure; HttpOnly`,
         },
         withCredentials: true
       }

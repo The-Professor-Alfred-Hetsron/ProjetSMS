@@ -2,7 +2,7 @@
     <img src="./assets/Images/AppLogo.png" alt="" srcset="">
     <div class="userProfile">
         <span class="uInitials">
-            <span>{{userInitial}}</span>
+            <span>{{userName.split(" ").length >=2? userName.split(" ")[0][0].toUpperCase()+userName.split(" ")[1][0].toUpperCase(): userName? userName[0]:"WsT"}}</span>
         </span>
         <span class="uName">{{userName}}</span>
     </div>

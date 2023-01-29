@@ -23,6 +23,7 @@ import { MessagingComponent } from '../Components/messaging/messaging.component'
 import { ContactCardComponent } from 'src/Components/contact-card/contact-card.component';
 import { TopHeaderComponent } from 'src/Components/top-header/top-header.component';
 import { NgxsModule } from '@ngxs/store';
+import { CookieService } from 'ngx-cookie-service';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 
 @NgModule({
@@ -53,7 +54,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
     NgxsModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot()
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

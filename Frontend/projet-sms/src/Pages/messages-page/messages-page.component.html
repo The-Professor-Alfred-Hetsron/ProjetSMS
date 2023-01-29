@@ -26,7 +26,7 @@
                 <img src="{{gradient}}" alt="">
                 <app-messaging *ngIf="messaging" [conversation]="curentConversation"/>
             </div>
-            <button *ngIf="compose" class="msg-btn" (click)="contactIsVisible=true">Composer</button>
+            <button *ngIf="compose" class="msg-btn" (click)="chooseContacts()">Composer</button>
         </section>
     </div>
     <section class="contact-selector"  *ngIf="contactIsVisible">

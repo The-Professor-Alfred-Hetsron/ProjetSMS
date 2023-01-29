@@ -23,7 +23,7 @@ export class NavbarComponent {
     {
       activeImage:"./assets/Images/MessagesButtonActive.png",
       linkImage:"./assets/Images/MessagesButtonLink.png",
-      path:"/messages/"+localStorage.getItem("userid"),
+      path:"/messages/",
       label:"Messages"
     }
   ]

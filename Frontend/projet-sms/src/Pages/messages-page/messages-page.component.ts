@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Router, ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import contacts from 'src/datas/contacts';
 import empty_conversation from 'src/datas/conversation';
 import conversations from 'src/datas/conversations';
@@ -12,6 +13,7 @@ import Contact from 'src/Types/contact';
 import Conversation from 'src/Types/conversation';
 import Message from 'src/Types/message';
 import Msg from 'src/Types/msg';
+import RContact from 'src/Types/rcontat';
 import SMsg from 'src/Types/smsg';
 
 @Component({
@@ -27,9 +29,9 @@ export class MessagesPageComponent {
   nbMsg:number = 0
   conversations:Conversation[] = []
   contacts:Contact[] = []
-  sended = this.conversations
-  sendedcontacts = this.contacts
   receivers: Contact[] = []
+  sendedcontacts:Contact[] = []
+  sended = this.conversations
   contactIsVisible = false
   name = new FormControl('');
   compose = true;
@@ -48,142 +50,100 @@ export class MessagesPageComponent {
     private messagingService: MessagingService,
     private contactService: ContactService,
     private _router: Router,
-    private _activatedRoute: ActivatedRoute
+    private _activatedRoute: ActivatedRoute,
+    private cookie: CookieService
   ) { }
 
   async ngOnInit() {
     this._activatedRoute.params.subscribe(parameter => {
-      this.id = this._activatedRoute.snapshot.params['id']
+      this.id = this.cookie.get('user_contact_id')
     })
     this.contacts = []
     if (this.id){
-      //get the user name
-      const token = localStorage.getItem('token')
-      if (token){
+      const token = this.cookie.get('token')
+      if (token !== '' && token !== null){
+        //check for the lloged user contact
         const resp = await this.contactService.getContact(this.id, token)
-          if (resp){
-            this.user.contact.userName = resp.name
-            this.user.contact.number = resp.phone
-            this.user.contact.email = resp.email
-            this.user.contact.zipCode = resp.zipCode
-            this.user.contact.id = resp.id
-          }
-          const userContacts = await this.authService.getUser(resp.creator)
-          if (userContacts) {
-            const { contacts } = userContacts
-            if (contacts) {
-              contacts.map(async (contact: string) => {
-                const resp = await this.contactService.getContact(contact, token)
-                if (resp) {
-                  //console.log(resp)
-                  const addContact = {
-                    userName: resp.name,
-                    number: resp.phone,
-                    email: resp.email,
-                    id: resp._id,
-                    checked: false,
-                    bg: "bg-blue",
-                    zipCode: 237
-                  }
-                  this.contacts.push(addContact)
-                }
-              })
-              this.sendedcontacts = this.contacts
+        if (resp){
+          this.user.contact.userName = resp.name
+          this.user.contact.number = resp.phone
+          this.user.contact.email = resp.email
+          this.user.contact.zipCode = resp.zipCode
+          this.user.contact.id = resp._id
+        }
+
+        //recuperation de tous les messages
+        const userMessages = await this.messagingService.getMessages(this.user.contact.id)
+        const conversationsNumbers:string[] = []
+        //parcours des messages
+        for(let index = 0; index < userMessages.length; index++) {
+          const messageReceivers = userMessages[index].receivers //destinataires des messages
+          if (messageReceivers.length > 0) {
+            //pour chaque recepteur des messages
+            for (let uid = 0; uid < messageReceivers.length; uid++) {
+              //si l'utilisateur n'est pas encore dans le tableau 
+              if (conversationsNumbers.indexOf(messageReceivers[uid]) === -1){
+                conversationsNumbers.push(messageReceivers[uid])
+              }
             }
           }
-          const res = await this.messagingService.getMessages(resp._id)
-          if (res !== null && res !== undefined) {
-            //console.log(res)
-            const conversations: Conversation[] = []
-            const intermconv: SMsg[] = [] 
-            res.map((message: Msg) => {
-                console.log(message)
-                message.receivers.map((receiver: string) => {
-                  const newMessage: SMsg = {
-                    _id: receiver,
-                    content: message.content,
-                    sender: message.sender,
-                    receiver: receiver,
-                    sendedAt: message.sendedAt
-                  }
-                  intermconv.push(newMessage)
-                })
-            })
-            if(intermconv){
-              const resp = await this.contactService.getContact(intermconv[0].receiver, token)
-              const addContact = {
-                userName: resp.name,
-                number: resp.phone,
-                email: resp.email,
-                id: resp._id,
-                checked: false,
-                bg: "bg-blue",
-                zipCode: 237
-              }
-              conversations.push({
-                sender: this.user.contact,
-                receiver: addContact,
-                icon: './assets/Images/whatsapp.png',
-                bg: "bg-blue",
-                id: intermconv[0]._id,
-                messages: [{
-                  content: intermconv[0].content,
-                  date: intermconv[0].sendedAt,
-                  hour: intermconv[0].sendedAt,
-                  receivers: null
-                }]
-              })
-              let i: number = 0
-              intermconv.map( async (message: SMsg) => {
-                conversations.map((conversation: Conversation) => {
-                  if (message.receiver === conversation.receiver.id){
-                    conversation.messages.push({
-                      content: message.content,
-                      date: message.sendedAt,
-                      hour: message.sendedAt,
-                      receivers: null
-                    })
-                    i = 1
-                  }
-                })
-                if (i === 1){
-                  i = 0
-                  const resp = await this.contactService.getContact(message.receiver, token)
-                  const addContact = {
-                    userName: resp.name,
-                    number: resp.phone,
-                    email: resp.email,
-                    id: resp._id,
-                    checked: false,
-                    bg: "bg-blue",
-                    zipCode: 237
-                  }
-                  conversations.push({
-                    sender: this.user.contact,
-                    receiver: addContact,
-                    icon: './assets/Images/whatsapp.png',
-                    bg: "bg-blue",
-                    id: message._id,
-                    messages: [{
-                      content: message.content,
-                      date: message.sendedAt,
-                      hour: message.sendedAt,
-                      receivers: null
-                    }]
+        }
+
+        console.log(conversationsNumbers)
+        
+        //et creation d'un contact avec une liste de messages vide
+        for(let index = 0; index < conversationsNumbers.length; index++){
+          const conversation = empty_conversation
+          console.log(conversationsNumbers[index])
+          const contact = await this.contactService.getContact(conversationsNumbers[index], token)
+          this.conversations.push({
+              id: conversationsNumbers[index],
+              sender: {
+                ...this.user.contact
+              },
+              receiver: {
+                userName: contact.name,
+                email: contact.email,
+                number: contact.phone,
+                zipCode: contact.zipCode,
+                id: conversationsNumbers[index],
+                bg: 'bg-blue',
+                checked: false
+              },
+              bg: 'bg-blue',
+              icon: this.wthpicon,
+              messages: []
+          })
+        }
+        //recherche des messages de chaque utilisateur parmis tous les messages
+        for(let index = 0; index < userMessages.length; index++) {
+          const messageReceivers = userMessages[index].receivers //destinataires des messages
+          if (messageReceivers.length > 0) {
+            //pour chaque recepteur des messages
+            for (let uid = 0; uid < messageReceivers.length; uid++) {
+              //pour chaque recpeteur unique
+              for (let uid2 = 0; uid2 < this.conversations.length; uid2++) {
+                if (this.conversations[uid2].receiver.id.toString() === messageReceivers[uid]){
+                  console.log(userMessages[index])
+                  this.conversations[uid2].messages.push({
+                    content: userMessages[index].content,
+                    date: userMessages[index].sendedAt,
+                    hour: userMessages[index].sendedAt,
+                    receivers: null
                   })
                 }
-              })
-              this.conversations = conversations
-              this.sended = this.conversations
-              this.nbMsg = this.conversations.length
-              console.log(this.conversations)
+              }
             }
           }
         }
       }
       else{
-        this._router.navigate([`/404`])
+        this._router.navigate([`/`])
       }
+    }
+    else{
+      this._router.navigate([`/`])
+    }
   }
 
   filterItem(item: string | null){
@@ -234,7 +194,6 @@ export class MessagesPageComponent {
         }
       }
     })
-    console.log(this.receivers.length)
   }
   openMessaging(newItem: string){
     this.conversations.map(convers => {
@@ -251,9 +210,30 @@ export class MessagesPageComponent {
     this.messaging=true
     if (this.receivers.length === 1){
       this.curentConversation = empty_conversation
+      this.curentConversation.sender = this.user.contact
+      this.curentConversation.receiver = this.receivers[0]
     }
   }
   
-  
+  async chooseContacts(){
+    this.contactIsVisible=true
+    const token = localStorage.getItem('token')
+    if (token){
+      const contacts = await this.contactService.getContacts(token)
+      this.contacts = []
+      contacts.map((contact:RContact) => {
+        this.contacts.push({
+          userName: contact.name,
+          email:contact.email, 
+          id:contact._id,
+          zipCode: contact.zipCode,
+          checked: false,
+          number: contact.phone,
+          bg: 'bg-blue'
+        })
+      })
+      this.sendedcontacts = this.contacts
+    }
+  }
   
 }

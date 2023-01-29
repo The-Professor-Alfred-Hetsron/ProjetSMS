@@ -20,18 +20,34 @@ export class ContactsPageComponent {
     name:  new FormControl(''),
     email:  new FormControl(''),
     phone:  new FormControl(''),
-    comcode: new FormControl('')
   })
-  contacts = [1,2,3,4,5,6,7,8,9,10]
   serverContacts:RContact[] = []
-  currentDisplayedContact:object = []
+  currentDisplayedContact:object[] = []
+  newContactInitials:string = ""
+  newContactName =  new FormControl("")
+  userContact:Contact = {
+    id: '',
+    bg: '',
+    checked: false,
+    email: '',
+    userName: '',
+    zipCode: 237,
+    number: ''
+  }
   constructor(private contactService: ContactService) {}
+  addContactName(data:string | null):void{
+    if(data){
+      this.newContactInitials = data.split(" ").length < 2 ? data.split(" ")[0][0].toUpperCase() : data.substring(0,1).toUpperCase() + data.substring(data.lastIndexOf(" ")+1,data.lastIndexOf(" ")+2).toUpperCase()
+    }
+  }
   async createContact(){
-    const {name, email, phone, comcode } = this.contactForm.value
-    if(name && email && phone && comcode){
+    this.addContact = !this.addContact
+    const {email, phone} = this.contactForm.value
+    const name = this.newContactName.value
+    if(name && email && phone){
       const token = localStorage.getItem('token')
       if (token){
-        const contact = await this.contactService.createContact(name, email, phone, comcode, token)
+        const contact = await this.contactService.createContact(name, email, phone, '237', token)
         this.serverContacts.push(contact)
       }
       else{
@@ -43,13 +59,28 @@ export class ContactsPageComponent {
     }
     this.addContact = false
   }
+  toogleAddcontactCard(event:Event):void{
+    this.addContact = !this.addContact
+  }
+  onAddContact(data:any):void{
+    this.addContact = !this.addContact
+    data.newName = this.newContactName.value
+    console.log(data)
+    this.currentDisplayedContact.push({name:data.newName,tel:data.newPhone, email:data.newEmail})
+  }
   async ngOnInit(){
-    const token = localStorage.getItem("token");
+    const token = localStorage.getItem('token')
     if (token){
       const contacts = await this.contactService.getContacts(token)
-      console.log(contacts)
       if (contacts !== null){
         this.serverContacts = contacts
+      }
+      const contact = await this.contactService.getUserContact(token)
+      if (contact !== null){
+        this.userContact.email = contact.email
+        this.userContact.number = contact.phone
+        this.userContact.userName = contact.name
+        this.userContact.id = contact._id
       }
     }
     this.pageNumber = this.serverContacts.length / 10

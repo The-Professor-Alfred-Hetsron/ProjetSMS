@@ -32,7 +32,7 @@ const routes: Routes = [
     component: LoginPageComponent
   },
   {
-    path: 'messages/:id',
+    path: 'messages',
     component: MessagesPageComponent
   },
   {

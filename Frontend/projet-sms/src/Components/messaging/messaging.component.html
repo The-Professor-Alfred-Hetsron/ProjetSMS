@@ -13,17 +13,17 @@
     </header>
     <div>
         <div class="message-item" *ngFor="let message of conversation.messages">
-            <div>
+            <div *ngIf="message.content !== ''">
                 <p>{{message.content}}</p>
-                <div><span>{{message.hour}}</span></div>
+                <div><span>{{message.hour.split('T')[1].split('.')[0]}}</span></div>
             </div>
-            <img src="{{wthpicon}}" alt="">
+            <img src="{{wthpicon}}" alt="" *ngIf="message.content !== ''">
         </div>
     </div>
     <footer>
         <div>
-            <input type="text" placeholder="Saisir votre message...">
-            <button>
+            <input type="text" [formControl]="newmessage" placeholder="Saisir votre message...">
+            <button (click)="sendNewMessage()">
                 <div class="svg-wrapper-1">
                     <div class="svg-wrapper">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">

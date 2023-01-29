@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'index-page',
@@ -7,13 +8,11 @@ import { Router } from '@angular/router';
   styleUrls: ['./index-page.component.css']
 })
 export class IndexPageComponent {
-  constructor(private _router: Router){}
+  constructor(private _router: Router, private cookies:CookieService){}
   login(){
-    localStorage.setItem('token', '')
     this._router.navigate(['/login']);
   }
   signup(){
-    localStorage.setItem('token', '')
     this._router.navigate(['/signup']);
   }
 }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'top-header',
@@ -6,6 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./top-header.component.css']
 })
 export class TopHeaderComponent {
-  userName = "Vicky Garba"
-  userInitial = this.userName.substring(0,1).toUpperCase() + this.userName.substring(this.userName.lastIndexOf(" ")+1,this.userName.lastIndexOf(" ")+2).toUpperCase()
+  @Input() userName = ""
 }
