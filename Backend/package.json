@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "start": "node ./API/server.js"
+    "start": "node api.js && node ./API/server.js"
   },
   "dependencies": {
     "bcrypt": "^5.1.0",
@@ -14,7 +14,7 @@
   },
   "name": "backend",
   "version": "1.0.0",
-  "description": "micro-service REST-full pour sauvegarder les informations de l'utilisateur et faire appel à une autre API en ligne pour l'envoi des SMS",
+  "description": "micro-service REST-full pour sauvegarder les informations de l'utilisateur et faire appel \u00e0 une autre API en ligne pour l'envoi des SMS",
   "main": "server.js",
   "devDependencies": {},
   "repository": {
