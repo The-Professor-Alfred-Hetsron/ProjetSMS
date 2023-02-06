@@ -1,0 +1,8 @@
+if (messageReceivers[uid] === conversationsNumbers[index]){
+    conversation.messages.push({
+      content: smessage.content,
+      date: smessage.sendedAt.split('T')[0],
+      hour: smessage.sendedAt.split('T')[1].split('.')[0],
+      receivers: null
+    })
+  }
