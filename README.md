@@ -59,3 +59,14 @@ Frontend (En AngularJS)
             |____index.ts
             |____main.ts
             |____styles.css
+            
+1- la branche 'main' qui est la principale branche contenant le code final
+
+2- L'essentiel du code se retrouvant sur la branche anzie
+ - pour tester l'application il faut clonner la branche anzie
+ - installer toute les dependances
+ - puis il faut lancer le front end avec la commande ng serve -o et le backend avec la commande npm start
+ - naviger sur le projet a l'adresse http://localhost:4200
+ - une version en ligne de l'application est a l'adresse https://projet-sms.vercel.app
+ - du a la gratuite du service il se peut que la page soit temporairement indisponible
+ - vous pouvez egalement tester le backend a l'adresse https://haterbsms.onrender.com/
