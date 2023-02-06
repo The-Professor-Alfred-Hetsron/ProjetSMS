@@ -1,0 +1,101 @@
+<div class="contact-right">
+    <top-header [userName]="userContact.userName"/>
+    <div class="contact-section">
+        <div class="contact-main-header">
+            <span class="contact-header">
+                <span>Contacts</span>
+                <span>({{serverContacts.length}})</span>
+            </span>
+            <button class="icon-btn add-btn" (click)="addContact=true">
+                <div class="add-icon"></div>
+                <div class="btn-txt">Ajouter</div>
+            </button>
+            <div class="container-search">
+                <input placeholder="Rechercher contacts..." required="" class="input-search" name="text" type="text">
+                <div class="icon-search">
+                    <svg viewBox="0 0 512 512" class="ionicon" xmlns="http://www.w3.org/2000/svg">
+                        <title>Rechercher</title>
+                        <path stroke-width="32" stroke-miterlimit="10" stroke="currentColor" fill="none" d="M221.09 64a157.09 157.09 0 10157.09 157.09A157.1 157.1 0 00221.09 64z"></path>
+                        <path d="M338.29 338.29L448 448" stroke-width="32" stroke-miterlimit="10" stroke-linecap="round" stroke="currentColor" fill="none"></path>
+                    </svg>
+                </div>
+            </div>
+            <div class="contact-navigation">
+                <button>
+                    <span class="icon-cnav">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/> </svg>
+                    </span>
+                    <span class="label">Précèdent</span>
+                </button>
+                <span>0 sur 0</span>
+                <button>
+                    <span class="label">Suivant</span>
+                    <span class="icon-cnav">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16"> <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/> </svg>
+                    </span>
+                </button>
+            </div>
+        </div>
+        <div class="contact-main-body">
+            <div class="contacts-body">
+                <contact-card *ngFor="let contact of serverContacts; let i=index"
+                    [id]="i"
+                    [contactName]="contact.name"
+                    [contactTel]="contact.phone"
+                    [contactEmail]="contact.email"
+                />
+            </div>
+        </div>
+    </div>
+    <div *ngIf="addContact" class="add-contact-container">
+        <form action="" method="post" class="add-contact-card" [formGroup]="contactForm" (ngSubmit) = "createContact()" >
+            <div class="add-card-header">
+                <span>Ajouter un Contact</span>
+            </div>
+            <div class="add-card-body">
+                <div class="add-contactProfile">
+                    <span class="add-cInitials">
+                        <span>{{newContactInitials}}</span>
+                    </span>
+                    <div class="wave-group">
+                        <input type="text" name="loginName" class="input" pattern="^[a-zA-Z]+ [a-zA-Z]+$" formControlName="name" [formControl]="newContactName" (ngModelChange)="addContactName(newContactName.value)" required>
+                        <span class="bar"></span>
+                        <label class="label">
+                            <span class="label-char" style="--index: 0">N</span>
+                            <span class="label-char" style="--index: 1">o</span>
+                            <span class="label-char" style="--index: 2">m</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="add-contact-tel-email">
+                    <div class="wave-group">
+                        <input type="text"  name="loginTel" class="input" required min="9" formControlName="phone">
+                        <span class="bar"></span>
+                        <label class="label">
+                            <span class="label-char" style="--index: 0">T</span>
+                            <span class="label-char" style="--index: 1">e</span>
+                            <span class="label-char" style="--index: 2">l</span>
+                        </label>
+                    </div>
+                    <div class="wave-group">
+                        <input type="email" name="loginEmail" class="input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" formControlName="email" required="">
+                        <span class="bar"></span>
+                        <label class="label">
+                            <span class="label-char" style="--index: 0">E</span>
+                            <span class="label-char" style="--index: 1">m</span>
+                            <span class="label-char" style="--index: 2">a</span>
+                            <span class="label-char" style="--index: 3">i</span>
+                            <span class="label-char" style="--index: 4">l</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="add-contact-controls">
+                    <button (click)="toogleAddcontactCard($event)">
+                        Annuler
+                    </button>
+                    <input type="submit" value="Ajouter">
+                </div>
+            </div>
+        </form>
+    </div>            
+</div>        

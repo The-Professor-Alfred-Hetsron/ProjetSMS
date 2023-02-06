@@ -1,0 +1,15 @@
+<div class="contact-item">
+    <div class="select-contact">
+        <label class="checkbox-wrapper">
+            <input type="checkbox" id="{{contact.id}}" [formControl]="name" (ngModelChange)="changeValue()" class="radioCheck" hidden="">
+            <label for="{{contact.id}}" class="checkmark"></label>
+        </label>
+    </div>
+    <div class="user-identification">
+        <div class="contact-initials {{contact.bg}}">{{contact.userName.split(" ").length >=2? contact.userName.split(" ")[0][0].toUpperCase()+contact.userName.split(" ")[1][0].toUpperCase(): contact.userName? contact.userName[0]:"WsT"}}</div>
+        <div class="contact-user-name">
+            <h1>{{contact.userName}}</h1>
+            <p>{{contact.number}}</p>
+        </div>
+    </div>
+</div>

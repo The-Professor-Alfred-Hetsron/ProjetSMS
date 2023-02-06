@@ -59,25 +59,14 @@ Frontend (En AngularJS)
             |____index.ts
             |____main.ts
             |____styles.css
-
-# Guide de Presentation du projet
-
-Le dépot est organisé selon plusieurs branches. Le nom d'une branche correspond au nom de la personne qui a manipulé le code présent sur cette branche:
-
+            
 1- la branche 'main' qui est la principale branche contenant le code final
 
-2- la branche 'alfred' correspondant à ALFRED
-
-3- la branche 'azoa' correspondant à AZOA
-
-4- la branche 'vicky' correspondant à ZIINAM
-
-5- la branche 'anzie' correspondant à ANZIE (le repo du projet final)
-
-6- la branche 'amanda' correspondant à DJEUNNANG
-
-7- la branche 'afane' correspondant à AFANE
-
-8- la branche 'Hervézor' correspondant à DJOMGUEM
-
-9- la branche 'leprodige' correspondant à ADZABA
+2- L'essentiel du code se retrouvant sur la branche anzie
+ - pour tester l'application il faut clonner la branche anzie
+ - installer toute les dependances
+ - puis il faut lancer le front end avec la commande ng serve -o
+ - naviger sur le projet a l'adresse http://localhost:4200
+ - une version en ligne de l'application est a l'adresse https://projet-sms.vercel.app le mieux etant de clonner le projet 
+ - du a la gratuite du service il se peut que la page soit temporairement indisponible
+ - vous pouvez egalement tester le backend a l'adresse https://haterbsms.onrender.com/

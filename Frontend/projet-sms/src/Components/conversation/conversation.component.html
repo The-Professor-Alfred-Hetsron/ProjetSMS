@@ -1,0 +1,11 @@
+<button class="convers-billet" (click)="openMessaging(conversation.id)">
+    <div class="initials {{conversation.bg}}">{{conversation.receiver.userName.split(" ").length >=2? conversation.receiver.userName.split(" ")[0][0].toUpperCase()+conversation.receiver.userName.split(" ")[1][0].toUpperCase(): conversation.receiver.userName? conversation.receiver.userName[0]:"WsT"}}</div>
+    <div class="convers-content">
+        <h1>{{conversation.receiver.userName}}</h1>
+        <p *ngIf="conversation.messages.length >= 1">{{conversation.messages[conversation.messages.length- 1].content}}</p>
+    </div>
+    <div class="convers-type">
+        <span *ngIf="conversation.messages.length >= 1">{{conversation.messages[conversation.messages.length - 1].hour.split('T')[1].split('.')[0]}}</span>
+        <img src="{{conversation.icon}}" alt="">
+    </div>
+</button>

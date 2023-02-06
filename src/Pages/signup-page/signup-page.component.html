@@ -1,0 +1,68 @@
+<div class="page-outer">
+    <div class="login-page">
+        <div class="login-container">
+            <div class="login-bgImage">
+                <div class="login-left">
+                    <div class="login-logo-header">
+                        <img src="./assets/Images/ENSPY.jpg" alt="" srcset="">
+                        <img src="./assets/Images/AppLogo.png" (click)="goMain()" class="gomain-btn" alt="" srcset="">
+                    </div>
+                    <div class="login-right">
+                        <form [formGroup]="singUpForm" (ngSubmit)="onSubmit()">
+                            <span class="form-title">Inscription</span>
+                            <div class="wave-group">
+                                <input type="text" formControlName="name" class="input" pattern="^[a-zA-Z]+ [a-zA-Z]+$" required>
+                                <span class="bar"></span>
+                                <label class="label">
+                                    <span class="label-char" style="--index: 0">N</span>
+                                    <span class="label-char" style="--index: 1">o</span>
+                                    <span class="label-char" style="--index: 2">m</span>
+                                </label>
+                            </div>
+                            <div class="wave-group">
+                                <input type="email" formControlName="email" class="input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required>
+                                <span class="bar"></span>
+                                <label class="label">
+                                    <span class="label-char" style="--index: 0">E</span>
+                                    <span class="label-char" style="--index: 1">m</span>
+                                    <span class="label-char" style="--index: 2">a</span>
+                                    <span class="label-char" style="--index: 3">i</span>
+                                    <span class="label-char" style="--index: 4">l</span>
+                                </label>
+                            </div>
+                            <div class="wave-group">
+                                <input type="text"  formControlName="phone" class="input" required min="9">
+                                <span class="bar"></span>
+                                <label class="label">
+                                    <span class="label-char" style="--index: 0">T</span>
+                                    <span class="label-char" style="--index: 1">e</span>
+                                    <span class="label-char" style="--index: 2">l</span>
+                                </label>
+                            </div>
+                            <div class="wave-group">
+                                <input type="password" formControlName="password" class="input" required min="8">
+                                <span class="bar"></span>
+                                <label class="label">
+                                    <span class="label-char" style="--index: 0">M</span>
+                                    <span class="label-char" style="--index: 1">o</span>
+                                    <span class="label-char" style="--index: 2">t</span>
+                                    <span class="label-char" style="--index: 4">&nbsp;</span>
+                                    <span class="label-char" style="--index: 5">d</span>
+                                    <span class="label-char" style="--index: 6">e</span>
+                                    <span class="label-char" style="--index: 7">&nbsp;</span>
+                                    <span class="label-char" style="--index: 8">P</span>
+                                    <span class="label-char" style="--index: 9">a</span>
+                                    <span class="label-char" style="--index: 10">s</span>
+                                    <span class="label-char" style="--index: 11">s</span>
+                                    <span class="label-char" style="--index: 12">e</span>
+                                </label>
+                            </div>
+                            <input type="submit" value="S'inscrire">
+                            <p>vous avez deja un compte ? <button (click)="navigate('/login')">connectez vous</button></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
