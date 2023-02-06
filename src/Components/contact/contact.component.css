@@ -1,0 +1,91 @@
+.contact-item{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.contact-item .select-contact{
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.checkmark {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background-color: #ddd;
+    border-radius: 10px;
+    position: relative;
+    transition: background-color 0.4s;
+    overflow: hidden;
+    cursor: pointer;
+   }
+   
+.radioCheck:checked ~ .checkmark {
+    background-color: #08bb68;
+}
+
+.checkmark::after {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 10px;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(40deg) scale(10);
+    opacity: 0;
+    transition: all 0.4s;
+}
+
+.radioCheck:checked ~ .checkmark::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotateZ(40deg) scale(1);
+}
+
+.contact-item .user-identification{
+    width: 100%;
+    height: 100%;
+    border: 1px solid #d4d3d5;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 5px;
+    margin-right: 10px;
+}
+.contact-item .user-identification > .contact-initials{
+    width: 55px;
+    height: 50px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FFF;
+    font-size: 1.7rem;
+    font-weight: 700;
+}
+
+.contact-item .user-identification > .contact-user-name{
+    width: 100%;
+    height: 50px;
+    margin-left: 5px;
+    padding-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bg-blue{
+    background: #29ABF4;
+}
+.bg-violet{
+    background: #453CC9;
+}
+.bg-orange{
+    background: #F69A36;
+}

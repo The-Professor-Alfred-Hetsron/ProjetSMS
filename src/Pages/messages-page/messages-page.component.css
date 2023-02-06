@@ -1,0 +1,153 @@
+.center-main{
+    padding: 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
+}
+.center-main nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    width: 100%;
+}
+.center-main nav > a > img{
+    height: 60px;
+}
+.center-main nav > button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    outline: none;
+    width: 250px;
+}
+.center-main nav > button > img{
+    margin-right: 1rem;
+    height: 60px;
+}
+.center-content{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    overflow: hidden;
+}
+.center-content > .conversations{
+    width: 550px;
+    height: 100%;
+    
+}
+
+.violet-text{
+    color: #603FE3;
+}
+.center-content .conversations{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.center-content .conversations > header{
+    height: 160px;
+    width: 100%;
+    padding: 0 5px;
+}
+.center-content .conversations > header h1{
+    font-weight: 700;
+    font-size: 60px;
+}
+.searchbar{
+    height: 50px;
+    background: #EEEEEE;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+}
+.searchbar > input{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 15px;
+    font-size: 1.3rem;
+}
+.searchbar > button{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+.center-content .conversations > .conversations-content{
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+}
+.center-content > .clavardage{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: 5px;
+    position: relative;;
+}
+.center-content > .clavardage > .clavardage-content{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    overflow-y: hidden;
+}
+.center-content > .clavardage > .clavardage-content > img{
+    width: 100%;
+    height: 100%;
+}
+
+.center-content > .clavardage >.msg-btn{
+    position: absolute;
+    bottom: 2rem;
+    right: 3rem;
+    height: 40px;
+    width: 150px;
+    border-radius: 8px;
+    border: none;
+    z-index: 50;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: #603FE3;
+    color: #FFF;
+    transition: all 350ms ease-in-out;
+}
+.center-content > .clavardage >.msg-btn:hover{
+    background: #FFF;
+    color: #603FE3;
+}
+.contact-selector{
+    position: fixed !important;;
+    top: 0;
+    left: 0;
+    background: rgba(255, 233, 242, 0.5);
+    width: 100%;
+    height: 100vh;
+    z-index: 50;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

@@ -1,0 +1,60 @@
+<div class="center-main">
+    <nav>
+        <a routerLink="/">
+            <img src="{{logoImage.image}}" alt="{{logoImage.alt}}">
+        </a>
+        <button>
+            <div class="contact-initials bg-blue">{{user.contact.userName.split(" ").length >=2? user.contact.userName.split(" ")[0][0].toUpperCase()+user.contact.userName.split(" ")[1][0].toUpperCase(): user.contact.userName? user.contact.userName[0]:"WsT"}}</div>
+            <h1>{{user.contact.userName}}</h1>
+        </button>
+    </nav>
+    <div class="center-content">
+        <section class="conversations">
+            <header>
+                <h1>Messages <span class="violet-text">({{nbMsg}})</span></h1>
+                <div class="searchbar">
+                    <input id="name" type="text" placeholder="rechercher..." [formControl]="name" (ngModelChange)="filterItem(name.value)">
+                    <button (click)="filterItem(name.value)"><img src="{{search}}" alt=""></button>
+                </div>
+            </header>
+            <div class="conversations-content">
+                <app-conversation *ngFor="let convers of sended" [conversation]="convers"  (messagingEvent)="openMessaging($event)"></app-conversation>
+            </div>
+        </section>
+        <section class="clavardage">
+            <div class="clavardage-content">
+                <img src="{{gradient}}" alt="">
+                <app-messaging *ngIf="messaging" [conversation]="curentConversation"/>
+            </div>
+            <button *ngIf="compose" class="msg-btn" (click)="chooseContacts()">Composer</button>
+        </section>
+    </div>
+    <section class="contact-selector"  *ngIf="contactIsVisible">
+        <div class="contact-container">
+            <div class="contact-card">
+                <header>
+                    <button (click)="contactIsVisible=false"><img src="{{closeicon}}" alt=""></button>
+                    <h1>Choisissez les contact</h1>
+                </header>
+                <div class="search-contact">
+                    <input type="text" placeholder="Rechercher..." [formControl]="name" (ngModelChange)="filterContact(name.value)">
+                </div>
+                <div class="contacts">
+                    <app-contact *ngFor="let contact of sendedcontacts" [contact]="contact" (newContactEvent)="addItem($event)"></app-contact>
+                </div>
+            </div>
+            <div class="receivers">
+                <header>
+                    <h1>Destinataires</h1>
+                    <button (click)="openNewMessaging()" *ngIf="receivers.length !== 0"><img src="{{sendicon}}" alt=""></button>
+                </header>
+                <div class="receiver-list">
+                    <div class="receiver-contact" *ngFor="let receiver of receivers" >
+                        <span >{{receiver.userName}}</span>
+                        <label class="close-contact-btn" for="{{receiver.id}}"><img src="{{closeicon}}" alt=""></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
