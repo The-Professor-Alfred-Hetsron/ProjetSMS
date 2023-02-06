@@ -67,6 +67,6 @@ Frontend (En AngularJS)
  - installer toute les dependances
  - puis il faut lancer le front end avec la commande ng serve -o
  - naviger sur le projet a l'adresse http://localhost:4200
- - une version en ligne de l'application est a l'adresse https://projet-sms.vercel.app
+ - une version en ligne de l'application est a l'adresse https://projet-sms.vercel.app le mieux etant de clonner le projet 
  - du a la gratuite du service il se peut que la page soit temporairement indisponible
  - vous pouvez egalement tester le backend a l'adresse https://haterbsms.onrender.com/
