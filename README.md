@@ -66,18 +66,5 @@ Le dépot est organisé selon plusieurs branches. Le nom d'une branche correspon
 
 1- la branche 'main' qui est la principale branche contenant le code final
 
-2- la branche 'alfred' correspondant à ALFRED
-
-3- la branche 'azoa' correspondant à AZOA
-
-4- la branche 'vicky' correspondant à ZIINAM
-
-5- la branche 'anzie' correspondant à ANZIE (le repo du projet final)
-
-6- la branche 'amanda' correspondant à DJEUNNANG
-
-7- la branche 'afane' correspondant à AFANE
-
-8- la branche 'Hervézor' correspondant à DJOMGUEM
-
-9- la branche 'leprodige' correspondant à ADZABA
+2- L'essentiel du code se retrouvant sur la branche anzie pour tester l'application il faut biensur clonner la branche anzie et installer toute les dependances puis il faut avoir lancer le front end avec la commande ng serve -o et le backend avec la commande npm start et naviger sur le projet a l'adresse http://localhost:4200
+une version en ligne de l'application est a l'adresse https://projet-sms.vercel.app du a la gratuite du service il se peut que la page soit temporairement indisponible vous pouvez egalement tester le backend a l'adresse https://haterbsms.onrender.com/
